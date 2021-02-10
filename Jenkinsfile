@@ -1,6 +1,7 @@
 #!groovy
 
 node {
+    deleteDir()
     checkout(scm)
     def dockerImage = "docker.custenborder.com/jcustenborder/docker-jenkins-golang:main-2"
 
