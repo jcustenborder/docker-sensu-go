@@ -10,9 +10,9 @@ node {
     withDockerRegistry(credentialsId: 'custenborder_docker', url: 'https://docker.custenborder.com') {
         docker.image(buildImage).inside() {
             dir("sensu-go") {
-                sh "go build -o bin/sensu-agent ./cmd/sensu-agent"
-                sh "go build -o bin/sensu-backend ./cmd/sensu-backend"
-                sh "go build -o bin/sensuctl ./cmd/sensuctl"
+                sh "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/sensu-agent ./cmd/sensu-agent"
+                sh "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/sensu-backend ./cmd/sensu-backend"
+                sh "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/sensuctl ./cmd/sensuctl"
                 archiveArtifacts artifacts: 'bin/sensu*', followSymlinks: false
             }
         }
