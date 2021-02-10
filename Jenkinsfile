@@ -9,5 +9,6 @@ node {
         sh "go build -o bin/sensu-backend ./cmd/sensu-backend"
         sh "go build -o bin/sensuctl ./cmd/sensuctl"
         sh "ls -1 bin"
+
     }
 }
