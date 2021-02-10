@@ -20,7 +20,7 @@ node {
 
     def dockerImage = "jcustenborder/sensu-go"
     def image = docker.build("jcustenborder/sensu-go:latest")
-    withDockerRegistry(credentialsId: 'hub.docker.com', url: 'https://index.docker.com') {
+    withDockerRegistry(credentialsId: 'hub.docker.com', url: "") {
         image.push()
     }
 }
