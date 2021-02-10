@@ -1,7 +1,7 @@
 #!groovy
 
 node {
-    git 'https://github.com/sensu/sensu-go.git'
+//    git 'https://github.com/sensu/sensu-go.git'
     checkout(scm)
     def dockerImage = "golang:1.15.8-alpine"
 
